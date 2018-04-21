@@ -9,12 +9,7 @@ public class UserControler {
 
     private List usersList = new ArrayList();
 
-    public void removeUser(User user) {
-        if (usersList.contains(user)) {
-            usersList.remove(user);
-        }
+    public void addUser(User user){
+     usersList.add(user);
     }
-
-    
-
 }
