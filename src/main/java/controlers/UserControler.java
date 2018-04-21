@@ -10,9 +10,27 @@ public class UserControler {
 
     private List<User> usersList = new ArrayList<User>();
 
-    public void createUser(String login, String passowrd) {
+    public void createUser() {
+        Scanner scanner = new Scanner(System.in);
+        boolean isWorking;
+        String login;
+        do {
+            isWorking = false;
+            login = scanner.nextLine();
+            System.out.println("Podaj login:");
+
+            for (User user1 : usersList) {
+                if (login.equals(user1.getName())) {
+                    System.out.println("Ten login jest zajety");
+                    isWorking = true;
+                    break;
+                }
+            }
+        } while (isWorking);
+
         User user = new User();
         user.setName(login);
+        String passowrd = scanner.nextLine();
         user.setPassword(passowrd);
         usersList.add(user);
     }
