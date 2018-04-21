@@ -7,14 +7,9 @@ import java.util.List;
 
 public class UserControler {
 
-    private List usersList = new ArrayList();
+    private List<User> usersList = new ArrayList<User>();
 
-    public void removeUser(User user) {
-        if (usersList.contains(user)) {
-            usersList.remove(user);
-        }
-    }
 
-    
+
 
 }
