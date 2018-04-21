@@ -15,6 +15,7 @@ public class UserControler {
         user.setName(login);
         user.setPassword(passowrd);
         usersList.add(user);
+
     }
 
     public void loginUser() {
