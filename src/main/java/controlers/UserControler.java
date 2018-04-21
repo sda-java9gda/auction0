@@ -14,7 +14,5 @@ public class UserControler {
             usersList.remove(user);
         }
     }
-
     
-
 }
