@@ -7,15 +7,12 @@ import java.util.List;
 
 public class UserControler {
 
-    private List<User> usersList = new ArrayList<User>();
+    private List usersList = new ArrayList();
 
-    public void addUser (User user){
-        usersList.add(user);
-//        if (usersList.contains(user)){
-//            System.out.println("Login zajęty");
+    public void removeUser(User user) {
+        if (usersList.contains(user)) {
+            usersList.remove(user);
         }
     }
 
-
-
-
+}
