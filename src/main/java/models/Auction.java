@@ -3,14 +3,14 @@ package models;
 import java.math.BigDecimal;
 
 public class Auction {
-  BigDecimal auctionPrice;
+  private int auctionPrice;
     private String auctionName;
     private String auctionDescription;
     private int counter = 0;
     private boolean isFinished;
     private User user;
 
-    public Auction(BigDecimal auctionPrice, String auctionName, String auctionDescription, boolean isFinished, User user) {
+    public Auction(int auctionPrice, String auctionName, String auctionDescription, boolean isFinished, User user) {
         this.auctionPrice = auctionPrice;
         this.auctionName = auctionName;
         this.auctionDescription = auctionDescription;
@@ -18,9 +18,12 @@ public class Auction {
         this.user = user;
     }
 
-    public BigDecimal getAuctionPrice() { return auctionPrice; }
+    public Auction() {
+    }
 
-    public void setAuctionPrice(BigDecimal auctionPrice) { this.auctionPrice = auctionPrice; }
+    public int getAuctionPrice() { return auctionPrice; }
+
+    public void setAuctionPrice(int auctionPrice) { this.auctionPrice = auctionPrice; }
 
     public String getAuctionName() { return auctionName; }
 
@@ -41,4 +44,15 @@ public class Auction {
     public User getUser() { return user; }
 
     public void setUser(User user) {this.user = user; }
+
+    @Override
+    public String toString() {
+        return "Auction{" +
+                ";" + auctionPrice +
+                ";" + auctionName +
+                ";" + auctionDescription +
+                ";" + counter +
+                ";" + isFinished +
+                ";" + user;
+    }
 }
