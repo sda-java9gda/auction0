@@ -1,4 +1,4 @@
-package controlers;
+package controllers;
 
 import models.User;
 
@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class UserControler {
 
-    private List<User> usersList = new ArrayList<User>();
+    private List<User> usersList = new ArrayList<User>(); // login User HashMap
 
 
     public boolean isLoginExist(String login) {

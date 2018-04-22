@@ -1,11 +1,11 @@
-import controlers.UserControler;
+import controllers.UserControler;
 
 import java.util.Scanner;
 
-public class Mian {
+public class Main {
     public static void main(String[] args) {
 
-        UserControler userControler = new UserControler();
+        UserControler userController = new UserControler();
 //<<<<<<< HEAD
         Scanner scanner = new Scanner(System.in);
         String login;
@@ -18,8 +18,8 @@ public class Mian {
             login = scanner.nextLine();
             System.out.println("Podaj haslo: ");
             password = scanner.nextLine();
-            if (userControler.isLoginExist(login)) {
-                userControler.createUser(login, password);
+            if (userController.isLoginExist(login)) {
+                userController.createUser(login, password); // zmienic na wyjatek + try catch
                 isWorking = false;
             }
             if(isWorking){
@@ -36,8 +36,8 @@ public class Mian {
 //            login = scanner.nextLine();
 //            System.out.println("Podaj haslo: ");
 //            password = scanner.nextLine();
-//            if (userControler.isLoginExist(login)) {
-//                userControler.createUser(login, password);
+//            if (userController.isLoginExist(login)) {
+//                userController.createUser(login, password);
 //                isWorking = false;
 //            }
 //        } while (isWorking);

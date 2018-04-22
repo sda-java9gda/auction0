@@ -25,4 +25,11 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public boolean equals (Object o){
+        if (!(o instanceof User)){ return false; }
+        if (this ==o){ return true; }
+        if (login.equals(((User) o).getLogin())&& password.equals(((User) o).getPassword())){ return true; }
+        return false;
+    }
 }
