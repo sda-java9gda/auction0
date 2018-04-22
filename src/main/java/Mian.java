@@ -6,6 +6,7 @@ public class Mian {
     public static void main(String[] args) {
 
         UserControler userControler = new UserControler();
+//<<<<<<< HEAD
         Scanner scanner = new Scanner(System.in);
         String login;
         String password;
@@ -25,6 +26,9 @@ public class Mian {
             System.out.println("ten login jest zajety!");
             }
         } while (isWorking);
+//=======
+//
+//>>>>>>> 2f92c40c137a77cdc54e7522ea8b7164b4fff244
 
         /**LOGOWANIE**/ // zmienic w userControl i dokonczyc
 //        do {

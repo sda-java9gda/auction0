@@ -23,7 +23,11 @@ public class UserControler {
     public User  createUser(String login, String password) {
         User user = new User(login,password);
         usersList.add(user);
+//<<<<<<< HEAD
         return user;
+//=======
+//
+//>>>>>>> 2f92c40c137a77cdc54e7522ea8b7164b4fff244
     }
 
     public void loginUser() {
