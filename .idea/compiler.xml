@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="SDA - projekt grupowy - koszyk" target="1.5" />
+      <module name="SDA - projekt grupowy - koszyk" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,14 +1,36 @@
 package controllers;
 
+import exceptions.DuplicateFoundException;
+import exceptions.UserNotFoundException;
 import models.User;
+import view.UserView;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class UserControler {
 
+
     private List<User> usersList = new ArrayList<User>(); // login User HashMap
+
+
+    public static boolean addUser(String login, String password) {
+        try {
+            UserRegistry.getInstanceOfUser().addUserAccount(login, password);
+        } catch (DuplicateFoundException e) {
+            System.err.println(UserView.printDuplicateFound(login));
+        }
+        return false;
+    }
+
+    public static boolean loginUser(String login, String password){
+        try {
+            UserRegistry.getInstanceOfUser().findUser(login,password);
+            System.out.println(UserView.printLoginSuccess(login));
+        } catch (UserNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
 
     public boolean isLoginExist(String login) {
@@ -20,14 +42,9 @@ public class UserControler {
         return true;
     }
 
-    public User  createUser(String login, String password) {
-        User user = new User(login,password);
-        usersList.add(user);
-//<<<<<<< HEAD
+    public User createUser(String login, String password) {
+        User user = new User(login, password);
         return user;
-//=======
-//
-//>>>>>>> 2f92c40c137a77cdc54e7522ea8b7164b4fff244
     }
 
     public void loginUser() {
@@ -43,10 +60,6 @@ public class UserControler {
             } else System.out.println("Błędne hasło lub login");
         }
     }
-
-//    public void addUser(User user) {
-//        usersList.add(user);
-//    }
 
     public void removeUser(User user) {
         if (usersList.contains(user)) {
