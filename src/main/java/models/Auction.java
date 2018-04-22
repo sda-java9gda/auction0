@@ -18,7 +18,7 @@ public class Auction {
         this.user = user;
     }
 
-    public Auction() {
+    public Auction(int auctionPrice, String auctionName, String auctiionDescription, User user) {
     }
 
     public int getAuctionPrice() { return auctionPrice; }
