@@ -27,7 +27,7 @@ public class Main {
 
         while (state != State.EXIT) {
             switch (state) {
-                case INIT: {
+                case INIT:
                     System.out.println("Witaj w sklepie, co chcesz zrobic:");
                     System.out.println("1 - zaloguj sie ");
                     System.out.println("2 - stworz konto");
@@ -53,18 +53,17 @@ public class Main {
                             break;
                     }
                     break;
-                }
                 case LOGGING:
-                    String login, pasword;
+                    String login, password;
                     boolean loginSucces;
 
                     System.out.println("podaj login");
                     login = scanner.nextLine();
 
                     System.out.println("Podaj haslo");
-                    pasword = scanner.nextLine();
+                    password = scanner.nextLine();
 
-                    loginSucces = UserControler.loginUser(login, pasword);
+                    loginSucces = UserControler.loginUser(login, password);
                     if (loginSucces) {
                         state = State.LOGGED;
                     } else {
@@ -76,9 +75,9 @@ public class Main {
                     login = scanner.nextLine();
 
                     System.out.println("Podaj haslo");
-                    pasword = scanner.nextLine();
+                    password = scanner.nextLine();
 
-                    loginSucces = UserControler.addUser(login, pasword);
+                    loginSucces = UserControler.addUser(login, password);
                     if (loginSucces) {
                         state = State.CREATING;
                     } else {
@@ -91,40 +90,26 @@ public class Main {
                     System.out.println(" 2 - dodaj aukcje");
                     System.out.println(" 3 - usun aukcje");
                     System.out.println(" 0 - wyloguj sie");
+                    answer = scanner.nextLine();
+                    switch (answer) {
+                        case ("1"):
+                            state = state.AUCTION_LIST;
+                            break;
+
+                        case ("2"):
+                            state = State.AUCTION_CREATE;
+                            break;
+
+                        case ("0"):
+                            state = State.EXIT;
+                            break;
+                        default:
+                            System.out.println("Za odpowiedz");
+                            state = State.INIT;
+                            break;
+                    }
+                case AUCTION_LIST:
             }
         }
-
-        UserControler userController = new UserControler();
-
-        String login, password;
-        boolean isWorking = true;
-
-        /**REJESTRACJA KONTA**/
-        do {
-            System.out.println("Podaj login: ");
-            login = scanner.nextLine();
-            System.out.println("Podaj haslo: ");
-            password = scanner.nextLine();
-            if (userController.isLoginExist(login)) {
-                userController.createUser(login, password); // zmienic na wyjatek + try catch
-                isWorking = false;
-            }
-            if (isWorking) {
-                System.out.println("ten login jest zajety!");
-            }
-        } while (isWorking);
-
-
-        /**LOGOWANIE**/ // zmienic w userControl i dokonczyc
-        do {
-            System.out.println("Podaj login: ");
-            login = scanner.nextLine();
-            System.out.println("Podaj haslo: ");
-            password = scanner.nextLine();
-            if (userController.isLoginExist(login)) {
-                userController.createUser(login, password);
-                isWorking = false;
-            }
-        } while (isWorking);
     }
 }
