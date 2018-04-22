@@ -10,29 +10,20 @@ public class UserControler {
 
     private List<User> usersList = new ArrayList<User>();
 
-    public void createUser() {
-        Scanner scanner = new Scanner(System.in);
-        boolean isWorking;
-        String login;
-        do {
-            isWorking = false;
-            login = scanner.nextLine();
-            System.out.println("Podaj login:");
 
-            for (User user1 : usersList) {
-                if (login.equals(user1.getName())) {
-                    System.out.println("Ten login jest zajety");
-                    isWorking = true;
-                    break;
-                }
+    public boolean isLoginExist(String login) {
+        for (User user : usersList) {
+            if (login.equals(user.getLogin())) {
+                return false;
             }
-        } while (isWorking);
+        }
+        return true;
+    }
 
-        User user = new User();
-        user.setName(login);
-        String passowrd = scanner.nextLine();
-        user.setPassword(passowrd);
+    public User  createUser(String login, String password) {
+        User user = new User(login,password);
         usersList.add(user);
+        return user;
     }
 
     public void loginUser() {
@@ -43,7 +34,7 @@ public class UserControler {
         String password = scanner.nextLine();
 
         for (User user : usersList) {
-            if (user.getName().equalsIgnoreCase(login) && user.getPassword().equals(password)) {
+            if (user.getLogin().equalsIgnoreCase(login) && user.getPassword().equals(password)) {
                 System.out.println("zalogowałeś sie");
             } else System.out.println("Błędne hasło lub login");
         }

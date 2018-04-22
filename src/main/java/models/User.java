@@ -2,24 +2,24 @@ package models;
 
 public class User {
 
-    private String name;
+    private String login;
     private String password;
 
-//    public User(String name, String password) {
-//        this.name = name;
-//        this.password = password;
-//    }
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
 
-    public String getName() {
-        return name;
+    public String getLogin() {
+        return login;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public void setPassword(String password) {
