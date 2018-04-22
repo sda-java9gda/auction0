@@ -18,7 +18,7 @@ public class UserRegistry implements Serializable {
     }
     private ArrayList<User> usersList;
 
-    private UserRegistry(){
+    public UserRegistry(){
         usersList = models.FileHandler.loadUser("users");
     }
 
