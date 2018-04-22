@@ -1,12 +1,10 @@
-package controllers;
+package models;
 
 import exceptions.DuplicateFoundException;
 import exceptions.UserNotFoundException;
-import models.User;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.logging.FileHandler;
 
 public class UserRegistry implements Serializable {
     public static UserRegistry instance = null;
