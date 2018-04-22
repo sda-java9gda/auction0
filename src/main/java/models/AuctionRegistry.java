@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class AuctionRegistry {
     private static AuctionRegistry instance = null;
 
-    public static AuctionRegistry getInstanceOfAuction() {
+    public static AuctionRegistry getInstanceOfAuction(boolean b) {
         if (instance == null) {
             instance = new AuctionRegistry();
         }
