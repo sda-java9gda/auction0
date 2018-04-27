@@ -26,6 +26,7 @@ public class FileHandler {
         ArrayList<Auction> list = new ArrayList<Auction>();
         File file = new File(filepath);
         Scanner sc = null;
+        ///dsdsd
         try {
             sc = new Scanner(file);
             while (sc.hasNextLine()) {
@@ -37,6 +38,7 @@ public class FileHandler {
             e.printStackTrace();
         }
         return list;
+
     }
 
     private static Auction parseToAuction(String line) {
