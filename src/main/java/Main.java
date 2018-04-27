@@ -1,115 +1,108 @@
-import controllers.UserControler;
-import org.omg.CORBA.UShortSeqHelper;
+import controllers.UserController;
+import controllers.UserFileController;
+import models.States;
+import models.User;
+import views.UserView;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
 
-    public enum State {
-        INIT,
-
-        LOGGING,
-        CREATING,
-
-        LOGGED,
-
-        AUCTION_CREATE,
-        AUCTION_LIST,
-        AUCTION_OFFER,
-
-        SAVE_DATA,
-        EXIT,
-    }
-
     public static void main(String[] args) {
-        State state = State.INIT;
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        States state = States.INIT;
+        UserController userController = new UserController();
+        String login, password;
+        Map<String, User> usersMap = new HashMap<>();
 
-        while (state != State.EXIT) {
+        do {
+
             switch (state) {
                 case INIT:
-                    System.out.println("Witaj w sklepie, co chcesz zrobic:");
-                    System.out.println("1 - zaloguj sie ");
-                    System.out.println("2 - stworz konto");
-                    System.out.println("3 - zobacz aukcje");
-                    System.out.println("4 - wystaw aukcje");
-                    System.out.println("0 - wyloguj ");
+                    System.out.println("Hello! What you want to do?");
+                    System.out.println("Press \"1\"  to login the user");
+                    System.out.println("Press \"2\"  to register the user");
+                    System.out.println("Press \"0\"  to exit");
+//                    UserFileController.writeUsersToDataBaseFile(usersMap);
+                    usersMap = userController.getMapOfUsers();
+                    String decision = sc.nextLine();
+                    switch (decision) {
 
-                    String answer = scanner.nextLine();
-
-                    switch (answer) {
                         case ("1"):
-                            state = State.LOGGING;
+                            state = States.LOGIN;
                             break;
                         case ("2"):
-                            state = State.CREATING;
+                            state = States.REGISTRATION;
                             break;
                         case ("0"):
-                            state = State.EXIT;
+                            state = States.EXIT;
                             break;
                         default:
-                            System.out.println("nieprawidlowy znak");
-                            state = State.INIT;
+                            System.out.println("Invalid character!");
+                            state = States.INIT;
                             break;
                     }
                     break;
-                case LOGGING:
-                    String login, password;
-                    boolean loginSucces;
+                case REGISTRATION:
+                    boolean isRegistered;
 
-                    System.out.println("podaj login");
-                    login = scanner.nextLine();
+                    UserView.enterLogin();
+                    login = sc.nextLine();
+                    UserView.enterPassword();
+                    password = sc.nextLine();
 
-                    System.out.println("Podaj haslo");
-                    password = scanner.nextLine();
-
-                    loginSucces = UserControler.loginUser(login, password);
-                    if (loginSucces) {
-                        state = State.LOGGED;
+                    isRegistered = userController.addUser(login, password, usersMap);
+                    if (isRegistered) {
+                        state = States.LOGIN;
+                        UserView.accountRegistered();
                     } else {
-                        state = State.INIT;
+                        state = States.INIT;
+                        UserView.loginIsTaken(login);
                     }
                     break;
-                case CREATING:
-                    System.out.println("podaj login");
-                    login = scanner.nextLine();
+                case LOGIN:
+                    boolean isLogged;
 
-                    System.out.println("Podaj haslo");
-                    password = scanner.nextLine();
+                    UserView.enterLogin();
+                    login = sc.nextLine();
+                    UserView.enterPassword();
+                    password = sc.nextLine();
 
-                    loginSucces = UserControler.addUser(login, password);
-                    if (loginSucces) {
-                        state = State.CREATING;
+                    isLogged = userController.logInUser(login, password,usersMap);
+                    if (isLogged) {
+                        UserView.welcomeUser(login);
+                        state = States.LOGGED;
                     } else {
-                        state = State.INIT;
+                        UserView.wrongPasswordOrLogin();
+                        state = States.LOGIN;
                     }
                     break;
                 case LOGGED:
-                    System.out.println("Wybierz opcje:");
-                    System.out.println(" 1 - wyswietl liste aukcji");
-                    System.out.println(" 2 - dodaj aukcje");
-                    System.out.println(" 3 - usun aukcje");
-                    System.out.println(" 0 - wyloguj sie");
-                    answer = scanner.nextLine();
-                    switch (answer) {
-                        case ("1"):
-                            state = state.AUCTION_LIST;
-                            break;
-
-                        case ("2"):
-                            state = State.AUCTION_CREATE;
-                            break;
-
-                        case ("0"):
-                            state = State.EXIT;
-                            break;
-                        default:
-                            System.out.println("Za odpowiedz");
-                            state = State.INIT;
+                    System.out.println("Hello! What you want to do?");
+                    System.out.println("Press \"1\"  to view the auctions");
+                    System.out.println("Press \"2\"  to add auction");
+                    System.out.println("Press \"3\"  to bid");
+                    System.out.println("Press \"0\"  to log out");
+                    decision = sc.nextLine();
+                    switch (decision) {
+                        case "1":
+                            //wyswietl liste aukcji
+                        case "2":
+                            //dodaj aukcje
+                        case "3":
+                            //licytuj
+                        case "0":
+                            UserView.logoutMessage();
+                            state = States.INIT;
                             break;
                     }
-                case AUCTION_LIST:
+                case EXIT:
+                    userController.saveUsersMapToFile(usersMap);
+                    UserView.exitProgramMessage();
+                    break;
             }
-        }
+        } while (state != States.EXIT);
     }
 }
