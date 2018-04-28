@@ -15,8 +15,8 @@ public class Main {
         States state = States.INIT;
         UserController userController = new UserController();
         Map<String, User> usersMap = new HashMap<>();
-        final String USERSFILEPATH = "src/main/resources/usersDataBase.txt";
-        
+        final String USERS_FILEPATH = "src/main/resources/usersDataBase.txt";
+
         do {
             switch (state) {
                 case INIT:
@@ -24,8 +24,10 @@ public class Main {
                     System.out.println("Press \"1\"  to login the user");
                     System.out.println("Press \"2\"  to register the user");
                     System.out.println("Press \"0\"  to exit");
-//                    UserFileController.writeUsersToDataBaseFile(usersMap);
-                    usersMap = userController.getMapOfUsers(USERSFILEPATH);
+                    if (!UserFileController.isFileExist(USERS_FILEPATH)){
+                    UserFileController.writeUsersToDataBaseFile(usersMap,USERS_FILEPATH);
+                    }
+                    usersMap = userController.getMapOfUsers(USERS_FILEPATH);
                     String decision = sc.nextLine();
                     switch (decision) {
 
@@ -100,7 +102,7 @@ public class Main {
                             break;
                     }
                 case EXIT:
-                    userController.saveUsersMapToFile(usersMap, USERSFILEPATH);
+                    userController.saveUsersMapToFile(usersMap, USERS_FILEPATH);
                     UserView.exitProgramMessage();
                     break;
             }

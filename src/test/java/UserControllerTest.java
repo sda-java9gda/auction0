@@ -2,6 +2,7 @@ import controllers.UserController;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import models.User;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -14,10 +15,9 @@ import static org.assertj.core.api.Assertions.*;
 @RunWith(JUnitParamsRunner.class)
 public class UserControllerTest {
 
-    ///@before
-    private UserController uc = new UserController();
-    private Map<String, User> usersMap = new HashMap();
-    //
+    private UserController uc;
+    private Map<String, User> usersMap;
+
     public Object paramsForTrue() {
         return new Object[][]{
                 {new User("Test1", "123"), true},
@@ -36,9 +36,16 @@ public class UserControllerTest {
         };
     }
 
+    @Before
+    public void createObjects(){
+        uc = new UserController();
+        usersMap = new HashMap<>();
+    }
+
     @Test
     @Parameters(method = "paramsForTrue")
     public void followParamsForIsUserExistShouldBeTrue(User user, boolean expected) {
+        createObjects();
         //given
         //user, usersMap
         //when

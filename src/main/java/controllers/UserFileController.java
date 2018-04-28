@@ -9,6 +9,14 @@ import java.util.Map;
 
 public class UserFileController {
 
+    public static boolean isFileExist(String filePath){
+        File file = new File(filePath);
+        if (file.exists()){
+            return true;
+        }
+        return false;
+    }
+
     public static boolean writeUsersToDataBaseFile(Map<String, User> usersMap, String filePath) {
         File file = new File(filePath);
         try (PrintWriter writer = new PrintWriter(new FileOutputStream(file, false))) {
