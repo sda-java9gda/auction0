@@ -16,7 +16,7 @@ public class Main {
         UserController userController = new UserController();
         Map<String, User> usersMap = new HashMap<>();
         final String USERS_FILEPATH = "src/main/resources/usersDataBase.txt";
-
+        final String AUCTION_FILEPATH = "src/main/resources/auctionsDataBase.txt";
         do {
             switch (state) {
                 case INIT:
