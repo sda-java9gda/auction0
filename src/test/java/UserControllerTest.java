@@ -13,9 +13,11 @@ import static org.assertj.core.api.Assertions.*;
 
 @RunWith(JUnitParamsRunner.class)
 public class UserControllerTest {
+
+    ///@before
     private UserController uc = new UserController();
     private Map<String, User> usersMap = new HashMap();
-
+    //
     public Object paramsForTrue() {
         return new Object[][]{
                 {new User("Test1", "123"), true},

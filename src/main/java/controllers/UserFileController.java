@@ -9,10 +9,8 @@ import java.util.Map;
 
 public class UserFileController {
 
-    private static final String FILEPATH = "src/main/resources/usersDataBase.txt";
-
-    public static boolean writeUsersToDataBaseFile(Map<String, User> usersMap) {
-        File file = new File(FILEPATH);
+    public static boolean writeUsersToDataBaseFile(Map<String, User> usersMap, String filePath) {
+        File file = new File(filePath);
         try (PrintWriter writer = new PrintWriter(new FileOutputStream(file, false))) {
             for (Map.Entry<String, User> map : usersMap.entrySet()) {
                 writer.println(map.getKey() + ";;" + map.getValue());
@@ -25,8 +23,8 @@ public class UserFileController {
         return false;
     }
 
-    public static Map<String, User> readUsersFromDataBaseFile() {
-        File file = new File(FILEPATH);
+    public static Map<String, User> readUsersFromDataBaseFile(String filePath) {
+        File file = new File(filePath);
 
         Map<String, User> usersMap = new HashMap<>();
         try {

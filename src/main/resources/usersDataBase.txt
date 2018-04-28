@@ -3,6 +3,7 @@ tt;;tt;;tt
 sss;;sss;;sss
 tom;;tom;;tom
 luk;;luk;;luk
+luki;;luki;;123
 ania;;ania;;ania
 tom1;;tom1;;tomtom
 zosia;;zosia;;zosia

@@ -6,19 +6,19 @@ import java.util.*;
 
 public class UserController {
 
-    public Map<String, User> getMapOfUsers() {
-        Map<String, User> usersMap = UserFileController.readUsersFromDataBaseFile();
+    public Map<String, User> getMapOfUsers(String filePath) {
+        Map<String, User> usersMap = UserFileController.readUsersFromDataBaseFile(filePath);
         if (usersMap != null) {
             return usersMap;
         }
         return usersMap = new HashMap<>();
     }
 
-    public void saveUsersMapToFile(Map<String, User> usersMap) {
-        UserFileController.writeUsersToDataBaseFile(usersMap);
+    public void saveUsersMapToFile(Map<String, User> usersMap, String filePath) {
+        UserFileController.writeUsersToDataBaseFile(usersMap, filePath);
     }
 
-    public boolean addUser(String login, String password, Map usersMap) {
+    public boolean addUser(String login, String password, Map<String, User> usersMap) {
         User user = new User(login, password);
         if (!isUserExist(login, usersMap)) {
             usersMap.put(login, user);
@@ -27,7 +27,7 @@ public class UserController {
         return false;
     }
 
-    public boolean removeUser(User user,Map usersMap) {
+    public boolean removeUser(User user,Map<String, User> usersMap) {
         if (isUserExist(user.getLogin(),usersMap)) {
             usersMap.remove(user);
             return true;
@@ -45,7 +45,7 @@ public class UserController {
         return false;
     }
 
-    public boolean isUserExist(String login,Map usersMap) {
+    public boolean isUserExist(String login,Map<String, User> usersMap) {
         return usersMap.containsKey(login);
     }
 }

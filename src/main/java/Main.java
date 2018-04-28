@@ -14,11 +14,10 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         States state = States.INIT;
         UserController userController = new UserController();
-        String login, password;
         Map<String, User> usersMap = new HashMap<>();
-
+        final String USERSFILEPATH = "src/main/resources/usersDataBase.txt";
+        
         do {
-
             switch (state) {
                 case INIT:
                     System.out.println("Hello! What you want to do?");
@@ -26,7 +25,7 @@ public class Main {
                     System.out.println("Press \"2\"  to register the user");
                     System.out.println("Press \"0\"  to exit");
 //                    UserFileController.writeUsersToDataBaseFile(usersMap);
-                    usersMap = userController.getMapOfUsers();
+                    usersMap = userController.getMapOfUsers(USERSFILEPATH);
                     String decision = sc.nextLine();
                     switch (decision) {
 
@@ -45,9 +44,9 @@ public class Main {
                             break;
                     }
                     break;
-                case REGISTRATION:
+                case REGISTRATION: {
                     boolean isRegistered;
-
+                    String login, password;
                     UserView.enterLogin();
                     login = sc.nextLine();
                     UserView.enterPassword();
@@ -62,15 +61,16 @@ public class Main {
                         UserView.loginIsTaken(login);
                     }
                     break;
-                case LOGIN:
+                }
+                case LOGIN: {
                     boolean isLogged;
-
+                    String login, password;
                     UserView.enterLogin();
                     login = sc.nextLine();
                     UserView.enterPassword();
                     password = sc.nextLine();
 
-                    isLogged = userController.logInUser(login, password,usersMap);
+                    isLogged = userController.logInUser(login, password, usersMap);
                     if (isLogged) {
                         UserView.welcomeUser(login);
                         state = States.LOGGED;
@@ -79,6 +79,7 @@ public class Main {
                         state = States.LOGIN;
                     }
                     break;
+                }
                 case LOGGED:
                     System.out.println("Hello! What you want to do?");
                     System.out.println("Press \"1\"  to view the auctions");
@@ -99,7 +100,7 @@ public class Main {
                             break;
                     }
                 case EXIT:
-                    userController.saveUsersMapToFile(usersMap);
+                    userController.saveUsersMapToFile(usersMap, USERSFILEPATH);
                     UserView.exitProgramMessage();
                     break;
             }
