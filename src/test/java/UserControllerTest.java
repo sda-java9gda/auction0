@@ -3,11 +3,13 @@ import controllers.UserFileController;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import models.User;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -15,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 import static org.assertj.core.api.Assertions.*;
 
@@ -48,6 +51,11 @@ public class UserControllerTest {
         uc = new UserController();
         usersMap = new HashMap<>();
         filePath="src/main/resources/TestUsersDataBase.txt";
+    }
+
+    @After
+    public void cleanUp() throws Exception {
+        Files.deleteIfExists(Paths.get(filePath));
     }
 
     @Test
@@ -179,5 +187,25 @@ public class UserControllerTest {
         //then
         assertTrue(actual.containsValue(user));
     }
+    @Test
+    public void getMapOfUsersShouldReturnMapThatDoNotContainsUser() throws Exception{
+        //given
+        Files.write(Paths.get(filePath),"ttt;;ttt;;54321\n".getBytes(),StandardOpenOption.CREATE);
+        User user = new User("tom","1234");
+        //when
+        Map<String,User> actual = uc.getMapOfUsers(filePath);
+        //then
+        assertFalse(actual.containsValue(user));
+    }
 
+    @Test
+    public void saveUsersMapToFileShouldBeTrue() throws Exception {
+        //given
+        Files.write(Paths.get(filePath),"tom;;tom;;1234\n".getBytes(),StandardOpenOption.CREATE);
+        //when
+        usersMap = uc.getMapOfUsers(filePath);
+        boolean actual =UserFileController.writeUsersToDataBaseFile(usersMap, filePath);
+        //then
+        assertThat(actual).isEqualTo(true);
+    }
 }
