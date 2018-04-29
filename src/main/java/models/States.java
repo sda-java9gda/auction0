@@ -7,5 +7,12 @@ public enum  States  {
     LOGGED,
     REGISTRATION,
 
+    AUCTION_lIST,
+    AUCTION_ADD,
+    AUCTION_REMOVE,
+    AUCTION_LIST_FOR_USER,
+    AUCTION_BIDDING,
+
+
     EXIT,
 }

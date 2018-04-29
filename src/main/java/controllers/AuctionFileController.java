@@ -11,9 +11,17 @@ import static controllers.UserFileController.splitLine;
 
 public class AuctionFileController {
 
-    public static boolean writeAuctionToFile(Map<String, Auction> auctionMap, String filePath) throws FileNotFoundException {
+    public static boolean isFileExist(String filePath){
         File file = new File(filePath);
-        try (PrintWriter writer = new PrintWriter(new FileOutputStream(file, false))) {
+        if (file.exists()){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean writeAuctionToDataAuctionFile(Map<String, Auction> auctionMap, String filePath)  {
+        File file = new File(filePath);
+        try (PrintWriter writer = new PrintWriter(new FileOutputStream(file, true))) {
             for (Map.Entry<String, Auction> map : auctionMap.entrySet()) {
                 writer.println(map.getKey() + ";;" + map.getValue());
             }
@@ -40,8 +48,8 @@ public class AuctionFileController {
                     reader.close();
                     break;
                 }
-                Auction auction = new Auction(splitLine(currentLine)[1], Integer.parseInt(splitLine(currentLine)[2]), splitLine(currentLine)[3], new User(splitLine(currentLine)[4], splitLine(currentLine)[5]));
-
+                Auction auction = new Auction(splitLine(currentLine)[1], Integer.parseInt(splitLine(currentLine)[2]), splitLine(currentLine)[3], splitLine(currentLine)[4]);
+                auctionMap.put(auction.getAuctionName(),auction);
             }
 
         } catch (IOException e) {
@@ -54,4 +62,5 @@ public class AuctionFileController {
 
         return line.split(";;");
     }
+
 }

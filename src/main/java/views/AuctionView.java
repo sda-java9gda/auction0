@@ -18,4 +18,5 @@ public class AuctionView {
     public static void printCongrats (String auctionName){
         System.out.println("Congratulations, you win " + auctionName);
     }
+
 }

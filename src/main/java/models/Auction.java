@@ -6,22 +6,22 @@ public class Auction {
     private String auctionDescription;
     private int counter =0;
     private boolean isFinished;
-    private User user;
+    private String userLogin;
 
 
-    public Auction(String auctionName,int price, String auctionDescription, boolean isFinished, User user) {
+    public Auction(String auctionName,int price, String auctionDescription, boolean isFinished, String userLogin) {
         this.price = price;
         this.auctionName = auctionName;
         this.auctionDescription = auctionDescription;
         this.isFinished = isFinished;
-        this.user = user;
+        this.userLogin = userLogin;
     }
 
-    public Auction(String auctionName, int price, String auctionDescription, User user) {
+    public Auction(String auctionName, int price, String auctionDescription, String userLogin) {
         this.auctionName = auctionName;
         this.price = price;
         this.auctionDescription = auctionDescription;
-        this.user = user;
+        this.userLogin = userLogin;
     }
 
     public int getPrice() {
@@ -64,19 +64,19 @@ public class Auction {
         isFinished = finished;
     }
 
-    public User getUser() {
-        return user;
+    public String getUserLogin() {
+        return userLogin;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserLogin(String userLogin) {
+        this.userLogin = userLogin;
     }
 
     @Override
     public String toString() {
         return    auctionName+ ";;"
                  +  price+ ";;" +
-                 auctionDescription + ";;" +
-                ";;" + user ;
+                 auctionDescription +
+                ";;" + userLogin;
     }
 }
