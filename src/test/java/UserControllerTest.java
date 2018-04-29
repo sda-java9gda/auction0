@@ -208,4 +208,8 @@ public class UserControllerTest {
         //then
         assertThat(actual).isEqualTo(true);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master
