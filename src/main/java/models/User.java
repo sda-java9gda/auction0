@@ -20,6 +20,6 @@ public class User {
 
     @Override
     public String toString() {
-        return login + ";;" + password;
+        return login + ";" + password;
     }
 }

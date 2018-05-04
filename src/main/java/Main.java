@@ -2,10 +2,14 @@ import controllers.AuctionController;
 import controllers.AuctionFileController;
 import controllers.UserController;
 import controllers.UserFileController;
+import exceptions.IllegalCharException;
+import exceptions.LoginTakenException;
+import exceptions.NoSuchUserException;
 import models.Auction;
 import models.States;
 import models.User;
 import views.AuctionView;
+import views.OtherViews;
 import views.UserView;
 
 import java.util.HashMap;
@@ -17,87 +21,99 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         States state = States.INIT;
-        UserController userController = new UserController();
-        AuctionController auctionController = new AuctionController();
+        UserController uc = new UserController();
+        AuctionController ac = new AuctionController();
         Map<String, User> usersMap = new HashMap<>();
-        Map<String, Auction> auctionMap = new HashMap<>();
+        Map<String, Auction> auctionsMap = new HashMap<>();
         final String USERS_FILEPATH = "src/main/resources/usersDataBase.txt";
-        final String AUCTION_FILEPATH = "src/main/resources/auctionsDataBase.txt";
+        final String AUCTIONS_FILEPATH = "src/main/resources/auctionsDataBase.txt";
         User user = null;
-        //SPRAWDZA CZY PLIK JEST STWORZONY // MOZNE WYRZUCAC INFO Z OTHERVIEWS
-                    if (!UserFileController.isFileExist(USERS_FILEPATH)) {
-                        try {
-                        UserFileController.writeUsersToDataBaseFile(user, USERS_FILEPATH);
-                        }catch (NullPointerException e){
-                            System.out.println("Stworzono plik");
-                        }
-                    }
+        if (!UserFileController.isFileExist(USERS_FILEPATH)) {
+            try {
+                UserFileController.writeUsersToFile(user, USERS_FILEPATH);
+            } catch (NullPointerException ignored) {
+            }
+        }
+        OtherViews.welcomeView();
         do {
             switch (state) {
                 case INIT:
-                    System.out.println("Hello! What you want to do?");
-                    System.out.println("Press \"1\"  to login the user");
-                    System.out.println("Press \"2\"  to register the user");
-                    System.out.println("Press \"0\"  to exit");
-                    usersMap = userController.getMapOfUsers(USERS_FILEPATH);
+                    OtherViews.initView();
+                    usersMap = uc.getMapOfUsers(USERS_FILEPATH);
                     String decision = sc.nextLine();
                     switch (decision) {
-
                         case ("1"):
                             state = States.LOGIN;
                             break;
                         case ("2"):
                             state = States.REGISTRATION;
                             break;
+                        case ("3"):
+                            state = States.REMOVING;
+                            break;
                         case ("0"):
                             state = States.EXIT;
                             break;
                         default:
-                            System.out.println("Invalid character!");
+                            OtherViews.invalidCharacter();
                             state = States.INIT;
                             break;
                     }
                     break;
-                case REGISTRATION: {
-                    boolean isRegistered;
-                    String login, password;
-                    UserView.enterLogin();
-                    login = sc.nextLine();
-                    UserView.enterPassword();
-                    password = sc.nextLine();
-
-                    isRegistered = userController.addUser(login, password, usersMap);
-                    if (isRegistered) {
-                        state = States.LOGIN;
-                        UserView.accountRegistered();
-                        userController.saveUsersMapToFile(new User(login,password), USERS_FILEPATH);
-                    } else {
-                        state = States.INIT;
-                        UserView.loginIsTaken(login);
-                    }
-                    break;
-                }
                 case LOGIN: {
-                    boolean isLogged;
                     String login, password;
                     UserView.enterLogin();
                     login = sc.nextLine();
                     UserView.enterPassword();
                     password = sc.nextLine();
-
-                    isLogged = userController.logInUser(login, password, usersMap);
-                    if (isLogged) {
-                        UserView.welcomeUser(login);
-
+                    try {
+                        uc.isLoginAndPasswordCorrect(login, password, usersMap);
+                        UserView.loggedIn(login);
                         state = States.LOGGED;
                         user = new User(login, password);
-                    } else {
+                    } catch (NoSuchUserException e) {
                         UserView.wrongPasswordOrLogin();
-                        state = States.LOGIN;
+                        state = States.INIT;
                     }
                     break;
                 }
-                case LOGGED:
+                case REGISTRATION: {
+                    String login, password;
+                    UserView.enterLogin();
+                    login = sc.nextLine();
+                    UserView.enterPassword();
+                    password = sc.nextLine();
+                    try {
+                        uc.isPasswordContainsIllegalChars(password);
+                        uc.addUser(login, password, USERS_FILEPATH, usersMap);
+                        UserView.accountRegistered();
+                    } catch (IllegalCharException ex) {
+                        UserView.illegalChar();
+                    } catch (LoginTakenException ex) {
+                        UserView.loginIsTaken(login);
+                    } finally {
+                        state = States.INIT;
+                    }
+                    break;
+                }
+                case REMOVING: {
+                    String login, password;
+                    UserView.enterLogin();
+                    login = sc.nextLine();
+                    UserView.enterPassword();
+                    password = sc.nextLine();
+                    try {
+                        uc.isLoginAndPasswordCorrect(login, password, usersMap);
+                        uc.removeUser(login, password, USERS_FILEPATH, usersMap);
+                        UserView.accountRemoved();
+                    } catch (NoSuchUserException e) {
+                        UserView.wrongPasswordOrLogin();
+                    } finally {
+                        state = States.INIT;
+                    }
+                    break;
+                }
+                case LOGGED: {
                     System.out.println("Hello! What you want to do?");
                     System.out.println("Press \"1\"  to view the auctions");
                     System.out.println("Press \"2\"  to add auction");
@@ -105,10 +121,10 @@ public class Main {
                     System.out.println("Press \"4\"  to view yours auctions");
                     System.out.println("Press \"5\"  to bid the auction");
                     System.out.println("Press \"0\"  to log out");
-                    if (!AuctionFileController.isFileExist(AUCTION_FILEPATH)) {
-                        AuctionFileController.writeAuctionToDataAuctionFile(auctionMap, AUCTION_FILEPATH);
+                    if (!AuctionFileController.isFileExist(AUCTIONS_FILEPATH)) {
+                        AuctionFileController.writeAuctionToDataAuctionFile(auctionsMap, AUCTIONS_FILEPATH);
                     }
-                    auctionMap = auctionController.getMapOfAuctions(AUCTION_FILEPATH);
+                    auctionsMap = ac.getMapOfAuctions(AUCTIONS_FILEPATH);
 
                     decision = sc.nextLine();
                     switch (decision) {
@@ -128,33 +144,34 @@ public class Main {
                             state = state.AUCTION_BIDDING;
                             break;
                         case "0":
-                            UserView.logoutMessage();
+                            UserView.loggedOut();
                             state = States.INIT;
                             break;
                     }
-                    break;
+                }
+                break;
                 case EXIT:
-                    UserView.exitProgramMessage();
+                    UserView.exitProgram();
                     break;
                 case AUCTION_ADD: {
                     boolean addAuction;
                     String auctionName = sc.nextLine();
                     String auctionDescription = sc.nextLine();
                     int price = sc.nextInt();
-                    addAuction = auctionController.addAuction(price, auctionName, auctionDescription, user.getLogin(), auctionMap);
+                    addAuction = ac.addAuction(price, auctionName, auctionDescription, user.getLogin(), auctionsMap);
                     if (addAuction) {
                         AuctionView.printAddAuction(auctionName);
                         state = States.LOGGED;
-                        AuctionFileController.writeAuctionToDataAuctionFile(auctionMap, AUCTION_FILEPATH);
+                        AuctionFileController.writeAuctionToDataAuctionFile(auctionsMap, AUCTIONS_FILEPATH);
                     } else System.out.println("nie udalo sie dodac aukcji");
 
                 }
                 case AUCTION_lIST: {
-                    auctionController.showAllAuction(auctionMap);
+                    ac.showAllAuction(auctionsMap);
                     state = States.LOGGED;
                 }
                 case AUCTION_LIST_FOR_USER: {
-                    auctionController.showAuctionsForUser(auctionMap, user);
+                    ac.showAuctionsForUser(auctionsMap, user);
                     state = States.LOGGED;
                 }
                 case AUCTION_BIDDING: {
@@ -162,17 +179,17 @@ public class Main {
                     Auction auction;
                     int biddingPrice;
                     boolean isWorking = true;
-                    if (auctionController.isAuctionExist(auctionName, auctionMap)) {
-                        auction = auctionController.chooseAuctionToBid(auctionName, auctionMap);
+                    if (ac.isAuctionExist(auctionName, auctionsMap)) {
+                        auction = ac.chooseAuctionToBid(auctionName, auctionsMap);
 
                         while (isWorking) {
                             System.out.println("podbij cene: ");
                             biddingPrice = sc.nextInt();
-                            if (auctionController.makeOffer(biddingPrice, auction)) {
+                            if (ac.makeOffer(biddingPrice, auction)) {
 
                                 System.out.println("WYGRALES AUKCJE");
-                                isWorking=false;
-                                state=States.LOGGED;
+                                isWorking = false;
+                                state = States.LOGGED;
                             }
                         }
                     } else {

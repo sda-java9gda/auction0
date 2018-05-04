@@ -13,6 +13,6 @@ public enum  States  {
     AUCTION_LIST_FOR_USER,
     AUCTION_BIDDING,
 
-
+    REMOVING,
     EXIT,
 }

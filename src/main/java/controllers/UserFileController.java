@@ -17,10 +17,10 @@ public class UserFileController {
         return false;
     }
 
-    public static boolean writeUsersToDataBaseFile(User user, String filePath) {
+    public static boolean writeUsersToFile(User user, String filePath) {
         File file = new File(filePath);
         try (PrintWriter writer = new PrintWriter(new FileOutputStream(file, true))) {
-            writer.println(user.getLogin() + ";;" + user.getPassword());
+            writer.println(user.getLogin() + ";" + user.getPassword());
             writer.close();
             return true;
         } catch (FileNotFoundException e) {
@@ -29,9 +29,8 @@ public class UserFileController {
         return false;
     }
 
-    public static Map<String, User> readUsersFromDataBaseFile(String filePath) {
+    public static Map<String, User> readUsersFromFile(String filePath) {
         File file = new File(filePath);
-
         Map<String, User> usersMap = new HashMap<>();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -45,76 +44,43 @@ public class UserFileController {
                 User user = new User(splitLine(currentLine)[0], splitLine(currentLine)[1]);
                 usersMap.put(user.getLogin(), user);
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
         return usersMap;
     }
 
-//    public static boolean removeUserFromFile(User user) {
-//
-//        try {
-//            File file = new File(FILEPATH);
-//
-//            File tempFile = new File(file.getAbsolutePath() + ".tmp");
-//
-//            BufferedReader reader = new BufferedReader(new FileReader(file));
-//            PrintWriter printer = new PrintWriter(new FileWriter(tempFile));
-//
-//            String currentLine = null;
-//            while ((currentLine = reader.readLine()) != null) {
-//
-//                if (!splitLine(currentLine)[0].equalsIgnoreCase(user.getLogin())) {
-//
-//                    printer.println(currentLine);
-//                    printer.flush();
-//                }
-//            }
-//            printer.close();
-//            reader.close();
-//
-//            if (!file.delete()) {
-//                return false;
-//            }
-//
-//            if (!tempFile.renameTo(file)) {
-//                return false;
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return true;
-//    }
-//
-//    public static boolean isUserRegisteredInDataBaseFile(User user) {
-//        File file = new File(FILEPATH);
-//        try {
-//            BufferedReader reader = new BufferedReader(new FileReader(file));
-//            String currentLine;
-//            boolean isWorking = true;
-//            while (isWorking) {
-//                currentLine = reader.readLine();
-//                if (currentLine == null) {
-//                    reader.close();
-//                    UserView.userDoNotExist();
-//                    return false;
-//                }
-//                if (splitLine(currentLine)[0].equalsIgnoreCase(user.getLogin())) {
-//
-//                    return true;
-//                }
-//
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return false;
-//    }
+    public static boolean removeUserFromFile(User user,String filePath) {
+        try {
+            File file = new File(filePath);
+            File tempFile = new File(file.getAbsolutePath() + ".tmp");
 
-    public static String[] splitLine(String line) {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            PrintWriter printer = new PrintWriter(new FileWriter(tempFile));
 
-        return line.split(";;");
+            String currentLine = null;
+            while ((currentLine = reader.readLine()) != null) {
+                if (!splitLine(currentLine)[0].equalsIgnoreCase(user.getLogin())) {
+                    printer.println(currentLine);
+                    printer.flush();
+                }
+            }
+            printer.close();
+            reader.close();
+            if (!file.delete()) {
+                return false;
+            }
+
+            if (!tempFile.renameTo(file)) {
+                return false;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
+    public static String[] splitLine(String line) {
+        return line.split(";");
+    }
 }
