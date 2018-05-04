@@ -6,9 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="projektGrupowyKoszyk" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="projektGrupowyKoszyk" target="1.8" />
       <module name="SDA - projekt grupowy - koszyk" target="1.8" />
     </bytecodeTargetLevel>
   </component>

@@ -24,6 +24,14 @@ public class Main {
         final String USERS_FILEPATH = "src/main/resources/usersDataBase.txt";
         final String AUCTION_FILEPATH = "src/main/resources/auctionsDataBase.txt";
         User user = null;
+        //SPRAWDZA CZY PLIK JEST STWORZONY // MOZNE WYRZUCAC INFO Z OTHERVIEWS
+                    if (!UserFileController.isFileExist(USERS_FILEPATH)) {
+                        try {
+                        UserFileController.writeUsersToDataBaseFile(user, USERS_FILEPATH);
+                        }catch (NullPointerException e){
+                            System.out.println("Stworzono plik");
+                        }
+                    }
         do {
             switch (state) {
                 case INIT:
@@ -31,9 +39,6 @@ public class Main {
                     System.out.println("Press \"1\"  to login the user");
                     System.out.println("Press \"2\"  to register the user");
                     System.out.println("Press \"0\"  to exit");
-                    if (!UserFileController.isFileExist(USERS_FILEPATH)) {
-                        UserFileController.writeUsersToDataBaseFile(usersMap, USERS_FILEPATH);
-                    }
                     usersMap = userController.getMapOfUsers(USERS_FILEPATH);
                     String decision = sc.nextLine();
                     switch (decision) {
@@ -65,6 +70,7 @@ public class Main {
                     if (isRegistered) {
                         state = States.LOGIN;
                         UserView.accountRegistered();
+                        userController.saveUsersMapToFile(new User(login,password), USERS_FILEPATH);
                     } else {
                         state = States.INIT;
                         UserView.loginIsTaken(login);
@@ -128,7 +134,6 @@ public class Main {
                     }
                     break;
                 case EXIT:
-                    userController.saveUsersMapToFile(usersMap, USERS_FILEPATH);
                     UserView.exitProgramMessage();
                     break;
                 case AUCTION_ADD: {

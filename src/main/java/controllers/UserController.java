@@ -14,8 +14,8 @@ public class UserController {
         return usersMap = new HashMap<>();
     }
 
-    public void saveUsersMapToFile(Map<String, User> usersMap, String filePath) {
-        UserFileController.writeUsersToDataBaseFile(usersMap, filePath);
+    public void saveUsersMapToFile(User user, String filePath) {
+        UserFileController.writeUsersToDataBaseFile(user, filePath);
     }
 
     public boolean addUser(String login, String password, Map<String, User> usersMap) {

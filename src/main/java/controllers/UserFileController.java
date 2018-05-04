@@ -9,20 +9,18 @@ import java.util.Map;
 
 public class UserFileController {
 
-    public static boolean isFileExist(String filePath){
+    public static boolean isFileExist(String filePath) {
         File file = new File(filePath);
-        if (file.exists()){
+        if (file.exists()) {
             return true;
         }
         return false;
     }
 
-    public static boolean writeUsersToDataBaseFile(Map<String, User> usersMap, String filePath) {
+    public static boolean writeUsersToDataBaseFile(User user, String filePath) {
         File file = new File(filePath);
-        try (PrintWriter writer = new PrintWriter(new FileOutputStream(file, false))) {
-            for (Map.Entry<String, User> map : usersMap.entrySet()) {
-                writer.println(map.getKey() + ";;" + map.getValue());
-            }
+        try (PrintWriter writer = new PrintWriter(new FileOutputStream(file, true))) {
+            writer.println(user.getLogin() + ";;" + user.getPassword());
             writer.close();
             return true;
         } catch (FileNotFoundException e) {
@@ -44,7 +42,7 @@ public class UserFileController {
                     reader.close();
                     break;
                 }
-                User user = new User(splitLine(currentLine)[1], splitLine(currentLine)[2]);
+                User user = new User(splitLine(currentLine)[0], splitLine(currentLine)[1]);
                 usersMap.put(user.getLogin(), user);
             }
 
