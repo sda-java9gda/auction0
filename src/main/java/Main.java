@@ -2,9 +2,7 @@ import controllers.AuctionController;
 import controllers.AuctionFileController;
 import controllers.UserController;
 import controllers.UserFileController;
-import exceptions.IllegalCharException;
-import exceptions.LoginTakenException;
-import exceptions.NoSuchUserException;
+import exceptions.*;
 import models.Auction;
 import models.States;
 import models.User;
@@ -25,9 +23,12 @@ public class Main {
         AuctionController ac = new AuctionController();
         Map<String, User> usersMap = new HashMap<>();
         Map<String, Auction> auctionsMap = new HashMap<>();
+        Map<String, Auction> oldAuctionsMap = new HashMap<>();
         final String USERS_FILEPATH = "src/main/resources/usersDataBase.txt";
         final String AUCTIONS_FILEPATH = "src/main/resources/auctionsDataBase.txt";
+        final String OLD_AUCTIONS_FILEPATH = "src/main/resources/oldAuctionsDataBase.txt";
         User user = null;
+        Auction auction = null;
         if (!UserFileController.isFileExist(USERS_FILEPATH)) {
             try {
                 UserFileController.writeUsersToFile(user, USERS_FILEPATH);
@@ -114,90 +115,109 @@ public class Main {
                     break;
                 }
                 case LOGGED: {
-                    System.out.println("Hello! What you want to do?");
-                    System.out.println("Press \"1\"  to view the auctions");
-                    System.out.println("Press \"2\"  to add auction");
-                    System.out.println("Press \"3\"  to remove");
-                    System.out.println("Press \"4\"  to view yours auctions");
-                    System.out.println("Press \"5\"  to bid the auction");
-                    System.out.println("Press \"0\"  to log out");
+                    OtherViews.loggedView();
                     if (!AuctionFileController.isFileExist(AUCTIONS_FILEPATH)) {
-                        AuctionFileController.writeAuctionToDataAuctionFile(auctionsMap, AUCTIONS_FILEPATH);
+                        AuctionFileController.writeAuctionToDataAuctionFile(auction, AUCTIONS_FILEPATH);
                     }
                     auctionsMap = ac.getMapOfAuctions(AUCTIONS_FILEPATH);
-
+                    oldAuctionsMap = ac.getMapOfAuctions(OLD_AUCTIONS_FILEPATH);
                     decision = sc.nextLine();
                     switch (decision) {
-                        case "1":
-                            state = state.AUCTION_lIST;
+                        case "1": {
+                            AuctionView.printAllAuctions();
+                            ac.showAllAuction(auctionsMap);
+                            state = States.LOGGED;
                             break;
-                        case "2":
-                            state = state.AUCTION_ADD;
+                        }
+                        case "2": {
+                            AuctionView.enterActionName();
+                            String auctionName = sc.nextLine();
+                            AuctionView.enterActionDescription();
+                            String auctionDescription = sc.nextLine();
+                            AuctionView.enterActionPrice();
+                            int price = sc.nextInt();
+                            try {
+                                ac.addAuction(auctionName, price, auctionDescription, user.getLogin(), AUCTIONS_FILEPATH, auctionsMap);
+                                AuctionView.auctionAdded();
+                            } catch (AuctionAlreadyExist ex) {
+                                AuctionView.auctionAlreadyExist();
+                            } finally {
+                                state = States.LOGGED;
+                                sc.nextLine();
+                            }
                             break;
-                        case "3":
-                            state = state.AUCTION_REMOVE;
+                        }
+                        case "3": {
+                            AuctionView.enterActionName();
+                            String auctionName = sc.nextLine();
+                            try {
+                                ac.isUserOwnAuction(user.getLogin(), auctionName, auctionsMap);
+                                ac.removeAuction(auctionsMap.get(auctionName), AUCTIONS_FILEPATH, auctionsMap);
+                                AuctionView.auctionRemoved();
+                            } catch (NoSuchAuctionException ex) {
+                                AuctionView.auctionDoNotExist();
+                            } catch (YouAreNotTheOwnerException ex) {
+                                AuctionView.youAreNotOwner();
+                            } finally {
+                                state = States.LOGGED;
+                            }
                             break;
-                        case "4":
-                            state = state.AUCTION_LIST_FOR_USER;
+                        }
+                        case "4": {
+                            AuctionView.yourAuctionsList();
+                            try {
+                                ac.showAuctionsForUser(auctionsMap, user);
+                            } catch (YouDoNotHaveAnyAuctions ex) {
+                                AuctionView.doNotHaveAnyAuction();
+                            } finally {
+                                state = States.LOGGED;
+                            }
                             break;
-                        case "5":
-                            state = state.AUCTION_BIDDING;
+                        }
+                        case "5": {
+                            AuctionView.enterActionName();
+                            String auctionName = sc.nextLine();
+                            int biddingPrice;
+                            boolean isWorking = true;
+                            try {
+                                auction = ac.chooseAuctionToBid(auctionName, auctionsMap);
+                                while (isWorking) {
+                                    AuctionView.bidPrice();
+                                    biddingPrice = sc.nextInt();
+                                    if (!ac.isPriceBigger(auction, biddingPrice)) {
+                                        AuctionView.priceIsTooLow();
+                                        continue;
+                                    }
+                                    if (ac.makeOffer(biddingPrice, auction)) {
+                                        AuctionView.printCongrats(auctionName, biddingPrice);
+                                        try {
+                                            ac.addAuction(auction.getAuctionName(), auction.getPrice(), auction.getAuctionDescription(), user.getLogin(), OLD_AUCTIONS_FILEPATH, oldAuctionsMap);
+                                            ac.removeAuction(auctionsMap.get(auctionName), AUCTIONS_FILEPATH, auctionsMap);
+                                        } catch (AuctionAlreadyExist ignored) {
+                                        } finally {
+                                            isWorking = false;
+                                        }
+                                    }
+                                }
+                            } catch (NoSuchAuctionException e) {
+                                AuctionView.auctionDoNotExist();
+                            } finally {
+                                sc.nextLine();
+                                state = States.LOGGED;
+                            }
                             break;
-                        case "0":
+                        }
+                        case "0": {
                             UserView.loggedOut();
                             state = States.INIT;
                             break;
+                        }
                     }
                 }
                 break;
                 case EXIT:
                     UserView.exitProgram();
                     break;
-                case AUCTION_ADD: {
-                    boolean addAuction;
-                    String auctionName = sc.nextLine();
-                    String auctionDescription = sc.nextLine();
-                    int price = sc.nextInt();
-                    addAuction = ac.addAuction(price, auctionName, auctionDescription, user.getLogin(), auctionsMap);
-                    if (addAuction) {
-                        AuctionView.printAddAuction(auctionName);
-                        state = States.LOGGED;
-                        AuctionFileController.writeAuctionToDataAuctionFile(auctionsMap, AUCTIONS_FILEPATH);
-                    } else System.out.println("nie udalo sie dodac aukcji");
-
-                }
-                case AUCTION_lIST: {
-                    ac.showAllAuction(auctionsMap);
-                    state = States.LOGGED;
-                }
-                case AUCTION_LIST_FOR_USER: {
-                    ac.showAuctionsForUser(auctionsMap, user);
-                    state = States.LOGGED;
-                }
-                case AUCTION_BIDDING: {
-                    String auctionName = sc.nextLine();
-                    Auction auction;
-                    int biddingPrice;
-                    boolean isWorking = true;
-                    if (ac.isAuctionExist(auctionName, auctionsMap)) {
-                        auction = ac.chooseAuctionToBid(auctionName, auctionsMap);
-
-                        while (isWorking) {
-                            System.out.println("podbij cene: ");
-                            biddingPrice = sc.nextInt();
-                            if (ac.makeOffer(biddingPrice, auction)) {
-
-                                System.out.println("WYGRALES AUKCJE");
-                                isWorking = false;
-                                state = States.LOGGED;
-                            }
-                        }
-                    } else {
-                        System.out.println("bledna nazwa aukcji ");
-                        state = States.LOGGED;
-                    }
-
-                }
             }
         } while (state != States.EXIT);
     }

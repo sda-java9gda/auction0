@@ -1,7 +1,6 @@
 package controllers;
 
 import models.User;
-import views.UserView;
 
 import java.io.*;
 import java.util.HashMap;
@@ -20,7 +19,7 @@ public class UserFileController {
     public static boolean writeUsersToFile(User user, String filePath) {
         File file = new File(filePath);
         try (PrintWriter writer = new PrintWriter(new FileOutputStream(file, true))) {
-            writer.println(user.getLogin() + ";" + user.getPassword());
+            writer.println(user.toString());
             writer.close();
             return true;
         } catch (FileNotFoundException e) {
@@ -44,13 +43,13 @@ public class UserFileController {
                 User user = new User(splitLine(currentLine)[0], splitLine(currentLine)[1]);
                 usersMap.put(user.getLogin(), user);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
         return usersMap;
     }
 
-    public static boolean removeUserFromFile(User user,String filePath) {
+    public static boolean removeUserFromFile(User user, String filePath) {
         try {
             File file = new File(filePath);
             File tempFile = new File(file.getAbsolutePath() + ".tmp");

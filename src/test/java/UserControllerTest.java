@@ -28,6 +28,7 @@ public class UserControllerTest {
     private UserController uc;
     private Map<String, User> usersMap;
     private String filePath;
+    private String testingDatafilePath="src/test/resources/TestUsersDataBase.txt";
 
     public Object paramsForTrue() {
         return new Object[][]{
@@ -51,7 +52,7 @@ public class UserControllerTest {
     public void setUp() {
         uc = new UserController();
         usersMap = new HashMap<>();
-        filePath="src/test/resources/TestUsersDataBase.txt";
+        filePath="src/test/resources/TestsUsers.txt";
     }
 
     @After
@@ -61,83 +62,47 @@ public class UserControllerTest {
 
     @Test
     @Parameters(method = "paramsForTrue")
-    public void followParamsForIsUserExistShouldBeTrue(User user, boolean expected) throws Exception{
-        //given
-        //  user, usersMap
-        //when
+    public void isUserExistShouldBeTrue(User user, boolean expected) throws Exception{
         uc.addUser(user.getLogin(),user.getPassword(),filePath, usersMap);
         boolean actual = uc.isUserExist(user.getLogin(), usersMap);
-        //then
         assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     @Parameters(method = "paramsForFalse")
     public void isUserExistShouldBeFalse(User user, boolean expected)throws Exception {
-        //given
-        //user, usersMap
-        //when
         uc.addUser(user.getLogin(),user.getPassword(),filePath, usersMap);
         boolean actual = uc.isUserExist("nonExistingLogin", usersMap);
-        //then
         assertThat(actual).isEqualTo(expected);
     }
-/**JAK PRZETESTOWAĆ MAPY !!??**/
-//    @Test
-//    @Parameters(method = "paramsForTrue")
-//    public void addUserShouldBeTrue(User user, boolean expected)throws Exception {
-//        //given
-//        //user, usersMap
-//        //when
-//        uc.addUser(user.getLogin(),user.getPassword(),filePath, usersMap);
-//        //then
-//        assertThat((Map<String, User>) usersMap.get(user.getLogin()), hasEntry("foo", "bar"));
-//    }
+
+    @Test
+    public void addUserShouldBeTrue()throws Exception {
+        User user = new User("login1","1234");
+        uc.addUser(user.getLogin(),user.getPassword(),filePath,usersMap);
+        String expected = user.toString();
+        String actual = usersMap.get(user.getLogin()).toString();
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void addUserShouldBeFalse() throws Exception{
+        User user = new User("login1","1234");
+        uc.addUser(user.getLogin(),user.getPassword(),filePath,usersMap);
+        String expected = "wrongLogin;andPassword";
+        String actual = usersMap.get(user.getLogin()).toString();
+
+        assertThat(actual).isNotEqualTo(expected);
+    }
 
 //    @Test
-//    @Parameters(method = "paramsForFalse")
-//    public void addUserShouldBeFalse(User user, boolean expected) throws Exception{
-//        //given
-//        //user
+//    public void logInUserShouldBeTrue()throws Exception {
+//        User user = new User("login1","1234");
 //        usersMap.put(user.getLogin(), user);
-//        //when
-//        boolean actual = uc.addUser(user.getLogin(), user.getPassword(), usersMap);
-//        //then
-//        assertThat(actual).isEqualTo(expected);
-//    }
-
-//    @Test
-//    @Parameters(method = "paramsForTrue")
-//    public void removeUserShouldBeTrue(User user, boolean expected) throws Exception{
-//        //given
-//        //user
-//        usersMap.put(user.getLogin(), user);
-//        //when
-//        boolean actual = uc.removeUser(user, usersMap);
-//        //then
-//        assertThat(actual).isEqualTo(expected);
-//    }
-
-//    @Test
-//    @Parameters(method = "paramsForFalse")
-//    public void removeUserShouldBeFalse(User user, boolean expected) throws Exception{
-//        //given
-//        //user, userMap
-//        //when
-//        boolean actual = uc.removeUser(user, usersMap);
-//        //then
-//        assertThat(actual).isEqualTo(expected);
-//    }
-
-//    @Test
-//    @Parameters(method = "paramsForTrue")
-//    public void logInUserShouldBeTrue(User user, boolean expected)throws Exception {
-//        //given
-//        //user
-//        usersMap.put(user.getLogin(), user);
-//        //when
-//        boolean actual = uc.isLoginAndPasswordCorrect(user.getLogin(), user.getPassword(), usersMap);
-//        //then
+//
+//        uc.isLoginAndPasswordCorrect(user.getLogin(), user.getPassword(), usersMap);
+//
 //        assertThat(actual).isEqualTo(expected);
 //    }
 

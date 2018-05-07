@@ -1,7 +1,5 @@
 package views;
 
-import models.User;
-
 public class UserView {
 
     public static void enterLogin() {
@@ -17,7 +15,7 @@ public class UserView {
     }
 
     public static void loggedIn(String loggin) {
-        System.out.println("You have successfully logged in as " + loggin + ".");
+        System.out.println("You have successfully logged in as " + loggin + ".\n");
     }
 
     public static void loggedOut() {
@@ -39,7 +37,6 @@ public class UserView {
     public static void wrongPasswordOrLogin() {
         System.out.println("Wrong login or password.");
     }
-
 
     public static void illegalChar() {
         System.out.println("Password can not contain this symbol \";\".");
