@@ -49,7 +49,7 @@ public class UserFileController {
         return usersMap;
     }
 
-    public static boolean removeUserFromFile(User user, String filePath) {
+    public static boolean removeUserFromFile(String userName, String filePath) {
         try {
             File file = new File(filePath);
             File tempFile = new File(file.getAbsolutePath() + ".tmp");
@@ -59,7 +59,7 @@ public class UserFileController {
 
             String currentLine = null;
             while ((currentLine = reader.readLine()) != null) {
-                if (!splitLine(currentLine)[0].equalsIgnoreCase(user.getLogin())) {
+                if (!splitLine(currentLine)[0].equalsIgnoreCase(userName)) {
                     printer.println(currentLine);
                     printer.flush();
                 }

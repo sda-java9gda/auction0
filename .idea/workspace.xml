@@ -2,33 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8885fb68-2fba-4ff6-bddc-35c124849702" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/exceptions/AuctionAlreadyExist.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/exceptions/NoSuchAuctionException.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/exceptions/YouAreNotTheOwnerException.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/exceptions/YouDoNotHaveAnyAuctions.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/AuctionControllerTest.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AuctionController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/AuctionController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AuctionFileController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/AuctionFileController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/UserController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/UserFileController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/UserFileController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Auction.java" afterPath="$PROJECT_DIR$/src/main/java/models/Auction.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/States.java" afterPath="$PROJECT_DIR$/src/main/java/models/States.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/AuctionView.java" afterPath="$PROJECT_DIR$/src/main/java/views/AuctionView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/OtherViews.java" afterPath="$PROJECT_DIR$/src/main/java/views/OtherViews.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/UserView.java" afterPath="$PROJECT_DIR$/src/main/java/views/UserView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/auctionsDataBase.txt" afterPath="$PROJECT_DIR$/src/main/resources/auctionsDataBase.txt" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/usersDataBase.txt" afterPath="$PROJECT_DIR$/src/main/resources/usersDataBase.txt" />
       <change beforePath="$PROJECT_DIR$/src/test/java/UserControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/UserControllerTest.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main$1.class" afterPath="$PROJECT_DIR$/target/classes/Main$1.class" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestUsersDataBase.txt" afterPath="$PROJECT_DIR$/src/test/resources/TestUsersDataBase.txt" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" afterPath="$PROJECT_DIR$/target/classes/Main.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/auctionsDataBase.txt" afterPath="$PROJECT_DIR$/target/classes/auctionsDataBase.txt" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/AuctionController.class" afterPath="$PROJECT_DIR$/target/classes/controllers/AuctionController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/AuctionFileController.class" afterPath="$PROJECT_DIR$/target/classes/controllers/AuctionFileController.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/UserController.class" afterPath="$PROJECT_DIR$/target/classes/controllers/UserController.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/UserFileController.class" afterPath="$PROJECT_DIR$/target/classes/controllers/UserFileController.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/Auction.class" afterPath="$PROJECT_DIR$/target/classes/models/Auction.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/States.class" afterPath="$PROJECT_DIR$/target/classes/models/States.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/usersDataBase.txt" afterPath="$PROJECT_DIR$/target/classes/usersDataBase.txt" />
       <change beforePath="$PROJECT_DIR$/target/classes/views/AuctionView.class" afterPath="$PROJECT_DIR$/target/classes/views/AuctionView.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/OtherViews.class" afterPath="$PROJECT_DIR$/target/classes/views/OtherViews.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/UserView.class" afterPath="$PROJECT_DIR$/target/classes/views/UserView.class" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/UserControllerTest.class" afterPath="$PROJECT_DIR$/target/test-classes/UserControllerTest.class" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,8 +30,44 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/projektGrupowyKoszyk$AuctionControllerTest_shoudPriceBeLower.coverage" NAME="AuctionControllerTest.shoudPriceBeLower Coverage Results" MODIFIED="1525882105503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/projektGrupowyKoszyk$AuctionControllerTest.coverage" NAME="AuctionControllerTest Coverage Results" MODIFIED="1525882173225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/projektGrupowyKoszyk$UserControllerTest.coverage" NAME="UserControllerTest Coverage Results" MODIFIED="1525872793020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="AuctionFileController.java" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AuctionFileController.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="310">
+                    <caret line="51" column="59" lean-forward="false" selection-start-line="51" selection-start-column="59" selection-end-line="51" selection-end-column="59" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3291">
+              <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -75,7 +102,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/usersDataBase.txt" />
         <option value="$PROJECT_DIR$/src/main/java/models/User.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/UserControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/FileController.java" />
         <option value="$PROJECT_DIR$/src/main/java/exceptions/AuctionAlreadyExist.java" />
         <option value="$PROJECT_DIR$/src/main/java/exceptions/NoSuchAuctionException.java" />
@@ -88,19 +114,22 @@
         <option value="$PROJECT_DIR$/src/main/java/views/AuctionView.java" />
         <option value="$PROJECT_DIR$/src/main/java/views/UserView.java" />
         <option value="$PROJECT_DIR$/src/main/java/views/OtherViews.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/UserFileController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/AuctionController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/AuctionFileController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/UserFileController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/UserController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/UserFileControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/UserControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/AuctionControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1430" />
-    <option name="y" value="-13" />
-    <option name="width" value="1366" />
-    <option name="height" value="738" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -158,6 +187,14 @@
               <item name="auction0" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projektGrupowyKoszyk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="auction0" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -178,9 +215,9 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -207,27 +244,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.AuctionControllerTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="projektGrupowyKoszyk" />
-      <envs />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -243,13 +266,13 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuctionControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="projektGrupowyKoszyk" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UserControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="AuctionControllerTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -263,14 +286,14 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="UserControllerTest.addUserShouldBeFalse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuctionControllerTest.shoudPriceBeBigger" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="projektGrupowyKoszyk" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UserControllerTest" />
-      <option name="METHOD_NAME" value="addUserShouldBeFalse" />
+      <option name="MAIN_CLASS_NAME" value="AuctionControllerTest" />
+      <option name="METHOD_NAME" value="shoudPriceBeBigger" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -283,14 +306,14 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="UserControllerTest.addUserShouldBeTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuctionControllerTest.shoudPriceBeLower" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="projektGrupowyKoszyk" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UserControllerTest" />
-      <option name="METHOD_NAME" value="addUserShouldBeTrue" />
+      <option name="MAIN_CLASS_NAME" value="AuctionControllerTest" />
+      <option name="METHOD_NAME" value="shoudPriceBeLower" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -303,14 +326,34 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="UserControllerTest.removeUserShouldBeTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuctionControllerTest.shouldUserOwnAuction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="projektGrupowyKoszyk" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UserControllerTest" />
-      <option name="METHOD_NAME" value="removeUserShouldBeTrue" />
+      <option name="MAIN_CLASS_NAME" value="AuctionControllerTest" />
+      <option name="METHOD_NAME" value="shouldUserOwnAuction" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="AuctionControllerTest.shouldUserOwnAuctionThrowException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="projektGrupowyKoszyk" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AuctionControllerTest" />
+      <option name="METHOD_NAME" value="shouldUserOwnAuctionThrowException" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -384,19 +427,19 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.UserControllerTest.addUserShouldBeTrue" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.UserControllerTest.addUserShouldBeFalse" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.UserControllerTest.removeUserShouldBeTrue" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.UserControllerTest" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.AuctionControllerTest.shouldUserOwnAuction" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.AuctionControllerTest.shouldUserOwnAuctionThrowException" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AuctionControllerTest.shoudPriceBeBigger" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.AuctionControllerTest.shoudPriceBeLower" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AuctionControllerTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.UserControllerTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.UserControllerTest.removeUserShouldBeTrue" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.UserControllerTest.addUserShouldBeFalse" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.UserControllerTest.addUserShouldBeTrue" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AuctionControllerTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AuctionControllerTest.shoudPriceBeLower" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AuctionControllerTest.shoudPriceBeBigger" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.AuctionControllerTest.shouldUserOwnAuctionThrowException" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AuctionControllerTest.shouldUserOwnAuction" />
       </list>
     </recent_temporary>
   </component>
@@ -417,59 +460,61 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserControllerTest - 2018.05.06 at 11h 49m 31s.xml">
-      <configuration name="UserControllerTest" configurationId="JUnit" />
+    <history-entry file="AuctionControllerTest - 2018.05.09 at 18h 09m 10s.xml">
+      <configuration name="AuctionControllerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserControllerTest - 2018.05.06 at 11h 55m 33s.xml">
-      <configuration name="UserControllerTest" configurationId="JUnit" />
+    <history-entry file="AuctionControllerTest - 2018.05.09 at 18h 09m 13s.xml">
+      <configuration name="AuctionControllerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserControllerTest_removeUserShouldBeTrue - 2018.05.06 at 11h 18m 59s.xml">
-      <configuration name="UserControllerTest.removeUserShouldBeTrue" configurationId="JUnit" />
+    <history-entry file="AuctionControllerTest - 2018.05.09 at 18h 09m 35s.xml">
+      <configuration name="AuctionControllerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserControllerTest_removeUserShouldBeTrue - 2018.05.06 at 11h 32m 07s.xml">
-      <configuration name="UserControllerTest.removeUserShouldBeTrue" configurationId="JUnit" />
+    <history-entry file="AuctionControllerTest_shoudPriceBeBigger - 2018.05.09 at 18h 07m 32s.xml">
+      <configuration name="AuctionControllerTest.shoudPriceBeBigger" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserControllerTest_removeUserShouldBeTrue - 2018.05.06 at 11h 32m 23s.xml">
-      <configuration name="UserControllerTest.removeUserShouldBeTrue" configurationId="JUnit" />
+    <history-entry file="AuctionControllerTest_shoudPriceBeLower - 2018.05.09 at 18h 08m 11s.xml">
+      <configuration name="AuctionControllerTest.shoudPriceBeLower" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserControllerTest_removeUserShouldBeTrue - 2018.05.06 at 11h 32m 26s.xml">
-      <configuration name="UserControllerTest.removeUserShouldBeTrue" configurationId="JUnit" />
+    <history-entry file="AuctionControllerTest_shoudPriceBeLower - 2018.05.09 at 18h 08m 26s.xml">
+      <configuration name="AuctionControllerTest.shoudPriceBeLower" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserControllerTest_removeUserShouldBeTrue - 2018.05.06 at 11h 32m 43s.xml">
-      <configuration name="UserControllerTest.removeUserShouldBeTrue" configurationId="JUnit" />
+    <history-entry file="AuctionControllerTest_shouldShowAuctionsForUser - 2018.05.09 at 17h 57m 28s.xml">
+      <configuration name="AuctionControllerTest.shouldShowAuctionsForUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserControllerTest_removeUserShouldBeTrue - 2018.05.06 at 11h 33m 40s.xml">
-      <configuration name="UserControllerTest.removeUserShouldBeTrue" configurationId="JUnit" />
+    <history-entry file="AuctionControllerTest_shouldUserOwnAuction - 2018.05.09 at 18h 04m 35s.xml">
+      <configuration name="AuctionControllerTest.shouldUserOwnAuction" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserControllerTest_removeUserShouldBeTrue - 2018.05.06 at 11h 34m 18s.xml">
-      <configuration name="UserControllerTest.removeUserShouldBeTrue" configurationId="JUnit" />
+    <history-entry file="AuctionControllerTest_shouldUserOwnAuction - 2018.05.09 at 18h 05m 16s.xml">
+      <configuration name="AuctionControllerTest.shouldUserOwnAuction" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserControllerTest_removeUserShouldBeTrue - 2018.05.06 at 11h 36m 33s.xml">
-      <configuration name="UserControllerTest.removeUserShouldBeTrue" configurationId="JUnit" />
+    <history-entry file="AuctionControllerTest_shouldUserOwnAuctionThrowException - 2018.05.09 at 18h 06m 05s.xml">
+      <configuration name="AuctionControllerTest.shouldUserOwnAuctionThrowException" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1296" height="1040" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277592" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.5026455" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34615386" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29264215" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943144" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26375404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3184569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39966556" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46822742" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -512,35 +557,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="31" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/States.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="61" lean-forward="false" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/UserFileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="52" column="46" lean-forward="false" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1972">
@@ -561,9 +582,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1394">
           <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -571,7 +590,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -587,7 +605,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="11" column="61" lean-forward="false" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
-          <folding />
+          <folding>
+            <element signature="e#1298#1299#0" expanded="true" />
+            <element signature="e#1348#1349#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -603,7 +624,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#paramsForTrue#0;class#UserControllerTest#0" expanded="false" />
+            <element signature="method#paramsForFalse#0;class#UserControllerTest#0" expanded="false" />
+            <element signature="method#setUp#0;class#UserControllerTest#0" expanded="false" />
+            <element signature="method#cleanUp#0;class#UserControllerTest#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -686,27 +712,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/UserControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="105" column="26" lean-forward="false" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/FileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/FileController.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/NumberFormatException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
           <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -714,7 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
           <caret line="579" column="0" lean-forward="false" selection-start-line="579" selection-start-column="0" selection-end-line="579" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -730,23 +739,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
           <caret line="803" column="16" lean-forward="false" selection-start-line="803" selection-start-column="16" selection-end-line="803" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exceptions/YouAreTheOwnerException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exceptions/YouAreTheOwnerException.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/auctionsDataBase.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -754,7 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -762,7 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -770,7 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -778,7 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,7 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,7 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -802,15 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Auction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -818,6 +803,73 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/AuctionView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/UserView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="43" column="1" lean-forward="false" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/OtherViews.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/oldAuctionsDataBase.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/usersDataBase.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/assertj/assertj-core/3.6.2/assertj-core-3.6.2.jar!/org/assertj/core/api/AbstractMapAssert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/UserFileControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Auction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/UserFileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="33" column="13" lean-forward="true" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -830,92 +882,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/views/AuctionView.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        <state relative-caret-position="17">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding>
-            <element signature="method#printCongrats#0;class#AuctionView#0" expanded="false" />
+            <element signature="e#1298#1299#0" expanded="true" />
+            <element signature="e#1348#1349#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/views/UserView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="43" column="1" lean-forward="false" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
-          <folding>
-            <element signature="method#loggedIn#0;class#UserView#0" expanded="false" />
-            <element signature="method#accountRegistered#0;class#UserView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/views/OtherViews.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-          <folding>
-            <element signature="e#79#80#0" expanded="true" />
-            <element signature="e#140#141#0" expanded="true" />
-            <element signature="e#977#978#0" expanded="true" />
-            <element signature="e#1033#1034#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="24" column="45" lean-forward="false" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/UserFileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-705">
-          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AuctionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="87" column="1" lean-forward="false" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
+        <state relative-caret-position="365">
+          <caret line="77" column="137" lean-forward="false" selection-start-line="77" selection-start-column="111" selection-end-line="77" selection-end-column="137" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/AuctionControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="60" column="1" lean-forward="false" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+        <state relative-caret-position="191">
+          <caret line="190" column="37" lean-forward="true" selection-start-line="190" selection-start-column="37" selection-end-line="190" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/UserControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="80" column="44" lean-forward="false" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+          <folding>
+            <element signature="method#paramsForTrue#0;class#UserControllerTest#0" expanded="false" />
+            <element signature="method#paramsForFalse#0;class#UserControllerTest#0" expanded="false" />
+            <element signature="method#setUp#0;class#UserControllerTest#0" expanded="false" />
+            <element signature="method#cleanUp#0;class#UserControllerTest#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AuctionFileController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="310">
+          <caret line="51" column="59" lean-forward="false" selection-start-line="51" selection-start-column="59" selection-end-line="51" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/oldAuctionsDataBase.txt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/usersDataBase.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="3" />
+        <state relative-caret-position="-3291">
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
           <folding />
         </state>
       </provider>

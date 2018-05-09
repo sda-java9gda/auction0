@@ -27,14 +27,17 @@ public class UserController {
         throw new LoginTakenException();
     }
 
-    public void removeUser(String login, String password, String filePath, Map<String, User> usersMap) throws NoSuchUserException {
-        User user = new User(login, password);
+    public void removeUser(String login, String filePath, Map<String, User> usersMap) throws NoSuchUserException {
         if (isUserExist(login, usersMap)) {
             usersMap.remove(login);
-            UserFileController.removeUserFromFile(user, filePath);
+            UserFileController.removeUserFromFile(login, filePath);
             return;
         }
         throw new NoSuchUserException();
+    }
+
+    public boolean isUserExist(String login, Map<String, User> usersMap) {
+        return usersMap.containsKey(login);
     }
 
     public void isLoginAndPasswordCorrect(String login, String password, Map<String, User> usersMap) throws NoSuchUserException {
@@ -44,10 +47,6 @@ public class UserController {
                 return;
         }
         throw new NoSuchUserException();
-    }
-
-    public boolean isUserExist(String login, Map<String, User> usersMap) {
-        return usersMap.containsKey(login);
     }
 
     public void isPasswordContainsIllegalChars(String password) throws IllegalCharException {

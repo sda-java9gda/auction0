@@ -9,7 +9,6 @@ import models.User;
 import views.AuctionView;
 import views.OtherViews;
 import views.UserView;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -105,7 +104,7 @@ public class Main {
                     password = sc.nextLine();
                     try {
                         uc.isLoginAndPasswordCorrect(login, password, usersMap);
-                        uc.removeUser(login, password, USERS_FILEPATH, usersMap);
+                        uc.removeUser(login, USERS_FILEPATH, usersMap);
                         UserView.accountRemoved();
                     } catch (NoSuchUserException e) {
                         UserView.wrongPasswordOrLogin();
